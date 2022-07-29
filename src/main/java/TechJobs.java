@@ -10,6 +10,7 @@ public class TechJobs {
 
     static Scanner in = new Scanner(System.in);
 
+
     public static void main (String[] args) {
 
         // Initialize our field map with key/name pairs
@@ -119,7 +120,34 @@ public class TechJobs {
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
+        if (someJobs.size() == 0) {
+            System.out.print("No Results");
+            return;
+        }
 
-        System.out.println("printJobs is not implemented yet");
+        for (HashMap<String, String> job : someJobs) {
+
+            String jobInfo = "\n*****\n";
+
+            for (Map.Entry<String, String> jobColumn: job.entrySet()) {
+                jobInfo += (jobColumn.getKey() + ": " + jobColumn.getValue() + "\n");
+            }
+
+            jobInfo += "*****";
+
+            System.out.println(jobInfo);
+        }
+
+
+        /*
+        for(int i = 0; i < someJobs.size(); i++ ){
+            System.out.println("\n*****");
+            for(Map.Entry<String, String> myJobs: someJobs.get(i).entrySet() ){
+                System.out.println(myJobs.getKey()+": "+ myJobs.getValue());
+            }
+            System.out.println("*****");
+        }*/
+
+        //System.out.println("printJobs is not implemented yet");
     }
 }
